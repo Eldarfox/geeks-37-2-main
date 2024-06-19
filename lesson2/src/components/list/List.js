@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Todo from "../todo/Todo";
-import classes from "./List.modal.css";
+import classes from "./List.module.css";
 
-const List = ({list}) => {
+
+const List = ({list, handleDelete ,handleDone , handleEdit}) => {
+    const [currentEdit , setCurrentEdit] = useState('')
     return (
-        <ul className={classes}>
+        <ul className={classes.todo_list}>
             {
-                list.map(item => <Todo todo={item}/>)
+                list.map(item => <Todo key={item.id} todo={item} currentEdit={currentEdit} handleEdit={handleEdit} handleDelete={handleDelete} handleDone={handleDone}/>)
             }
         </ul>
     );
