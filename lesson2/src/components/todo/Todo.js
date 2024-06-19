@@ -25,7 +25,7 @@ const Todo = ({todo , handleDelete ,handleDone , handleEdit , handleCurrentEdit,
                     />
                     <Button action={() => {
                         handleEdit({
-                            ...todo, title: input
+                            ...todo, title: input, id: todo.id
                         });
                     }} text={'Save'}/>
                     <Button action={() => {

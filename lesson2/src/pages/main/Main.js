@@ -6,6 +6,7 @@ import Modal from '../../components/modal/Modal';
 import Input from '../../components/input/Input';
 import Button from "../../components/Button";
 import List from "../../components/list/List";
+import todo from "../../components/todo/Todo";
 
 
 
@@ -67,9 +68,15 @@ const Main = () => {
         setTasks([...tasks])
     }
 
-    const handleEdit = (text) => {
-        
-    }
+    const handleEdit = (input,id) => {
+        tasks.map(task=> {
+            if (task.id===id){
+                return task.title=input
+            }
+        })
+        setTasks([...tasks])
+    };
+
     const handleDelete = (id) => {
         setTasks(tasks.filter(task=>task.id!==id))
     }
