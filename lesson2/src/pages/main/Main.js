@@ -68,10 +68,10 @@ const Main = () => {
         setTasks([...tasks])
     }
 
-    const handleEdit = (input,id) => {
+    const handleEdit = (title,id) => {
         tasks.map(task=> {
             if (task.id===id){
-                return task.title=input
+                return task.title=title
             }
         })
         setTasks([...tasks])

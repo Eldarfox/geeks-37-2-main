@@ -5,14 +5,13 @@ import Input from "../input/Input";
 
 const Todo = ({todo , handleDelete ,handleDone , handleEdit , handleCurrentEdit, isEdit}) => {
     const [input , setInput] = useState(todo.title)
-
     return (
         <>
             <li className={classes.todo}>
                 <p>id: {todo.id}</p>
                 <p>title: {todo.title}</p>
                 <p>completed: {todo.completed ? 'выполнено' : 'не выполнено'}</p>
-                <Button text={'edit'} action={() => handleCurrentEdit(todo.id )}/>
+                <Button text={'edit'} action={() => handleCurrentEdit(todo.id)}/>
                 <Button text={'delete'} action={() => handleDelete(todo.id )}/>
                 <Button text={'done'} action={() => handleDone(todo.id )}/>
             </li>
@@ -24,12 +23,11 @@ const Todo = ({todo , handleDelete ,handleDone , handleEdit , handleCurrentEdit,
                         value={input}
                     />
                     <Button action={() => {
-                        handleEdit({
-                            ...todo, title: input, id: todo.id
-                        });
+                        handleEdit(input, todo.id);
+                        handleCurrentEdit(false)
                     }} text={'Save'}/>
                     <Button action={() => {
-
+                        handleCurrentEdit(false)
                     }} text={'Cancel'}/>
                 </div>
             }
