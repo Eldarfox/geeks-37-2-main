@@ -9,4 +9,6 @@
 }
 .active {
     background-color: #61dafb;
+    text-decoration: line-through;
+
 }

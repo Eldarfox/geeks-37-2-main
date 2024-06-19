@@ -5,9 +5,10 @@ import Input from "../input/Input";
 
 const Todo = ({todo , handleDelete ,handleDone , handleEdit , handleCurrentEdit, isEdit}) => {
     const [input , setInput] = useState(todo.title)
+    const todoClassName = `${classes.todo} ${todo.completed ? classes.active : ""}`;
     return (
         <>
-            <li className={classes.todo}>
+            <li className={todoClassName}>
                 <p>id: {todo.id}</p>
                 <p>title: {todo.title}</p>
                 <p>completed: {todo.completed ? 'выполнено' : 'не выполнено'}</p>
