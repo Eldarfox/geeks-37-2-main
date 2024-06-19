@@ -4,14 +4,14 @@ import Button from "../Button";
 import Input from "../input/Input";
 
 
-const Modal = ({handleShow , handleChangeTask , handleAdd}) => {
+const Modal = ({handleShow, handleChangeTask, handleAdd  }) => {
     return (
         <>
             <div className={classes.modalWrapper} onClick={handleShow}/>
             <div className={classes.modalContent}>
-                <Button action={handleShow} text={'close'}/>
-                <Input onChange={handleChangeTask} placeholder={"введите название задания"}/>
-                <Button action={handleAdd} text={"add"}/>
+                <Button action={handleShow} text={'Close'}/>
+                <Input onChange={handleChangeTask} placeholder={'Введите название таска'}/>
+                <Button action={handleAdd} text={'Add'}/>
             </div>
         </>
     );

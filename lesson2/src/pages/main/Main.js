@@ -10,90 +10,97 @@ import List from "../../components/list/List";
 
 
 const Main = () => {
-    const [show, setShow] = useState(false)
-    const [inputValue, setInputValue] = useState('')
-    const [inputTask , setInputTask] = useState('')
+    const [ show, setShow ] = useState(false);
+    const [ inputValue, setInputValue ] = useState('');
+    const [ inputTask, setInputTask ] = useState('');
     const [regex, setRegex] = useState('')
-    const [tasks , setTasks] = useState ([
+    const [ tasks, setTasks ] = useState([
         {
-            id: 1,
+            id: 4,
             title: 'coding',
             completed: false
         },
         {
-            id: 2,
+            id: 5,
             title: 'eat',
             completed: false
         },
         {
-            id: 3,
+            id: 6,
             title: 'sleep',
-            completed: false
+            completed: true
         }
-    ])
+    ]);
+    console.log(tasks);
 
     const handleShow = () => {
-        setShow(!show)
-    }
-
-    const handleChange = (event) => {
-        console.log(event.target.value)
-        setInputValue(event.target.value)
-    }
-
-    const handleChangeTask = (event) => {
-        console.log(event.target.value)
-        setInputValue(event.target.value)
-    }
+        setShow(prev => !prev);
+    };
 
     const handleChangeSearch = (event) => {
-        console.log(event.target.value)
-        setRegex(event.target.value)
-    }
+        console.log(event.target.value);
+        setRegex(event.target.value);
+    };
 
+    const handleChangeTask = (event) => {
+        console.log(event.target.value);
+        setInputTask(event.target.value);
+    };
 
     const handleAdd = () => {
-        setTasks([...tasks , {
-            id: tasks.length>0 ? tasks[tasks.length-1].id+1 : 1,
-            title: inputTask ,
-            completed: false
-        }])
-    }
-
-    const handleDelete = (id) => {
-        setTasks(tasks.filter(task =>task.id!==id))
-    }
+        console.log('add');
+        setTasks(prev=>
+            [...prev, {
+                id: tasks.length>0 ?  tasks[tasks.length-1].id+1 : 1,
+                title: inputTask,
+                completed: false
+            }])
+    };
 
     const handleDone = (id) => {
-        tasks.map(task => {
-            if(task.id===id){
+        console.log(id)
+        tasks.map(task=> {
+            if(task.id===id) {
                 return task.completed=!task.completed
             }
         })
         setTasks([...tasks])
     }
 
-    const searchTask = () => {
-        return tasks.filter(task => task.title.match(regex))
+    const handleEdit = (text) => {
+        
     }
+    const handleDelete = (id) => {
+        setTasks(tasks.filter(task=>task.id!==id))
+    }
+
+    const searchTask = () => {
+        return tasks.filter(task=>task.title.match(regex)) || []
+    }
+
     const filterTasks = searchTask()
     return (
         <>
-            <h1>hello</h1>
-            <List list={filterTasks} handleDelete={handleDelete} handleDone={handleDone}/>
-            <User name={'Bakyt'} age={18} phone={468465165146}/>
-            <Content text={'Bakyt'} number={18} boolean={true}/>
-            <Example>
-                <p style={{ color: 'yellowgreen' }}>Bakyt</p>
-            </Example>
-            <Input onChange={handleChangeSearch} placeholder={"search"}/>
+            {/*<h1>hello</h1>*/}
+
+            <List
+                list={filterTasks}
+                handleDelete={handleDelete}
+                handleDone={handleDone}
+                handleEdit={handleEdit}
+            />
+            {/*<User name={'Bakyt'} age={18} phone={468465165146}/>*/}
+            {/*<Content text={'Bakyt'} number={18} boolean={true}/>*/}
+            {/*<Example>*/}
+            {/*    <p style={{ color: 'yellowgreen' }}>Bakyt</p>*/}
+            {/*</Example>*/}
+            <Input placeholder={'поиск'} onChange={handleChangeSearch}/>
             <Button action={handleShow} text={'Открыть модалку'}/>
-
             {
-                show && <Modal handleShow={handleShow}
-                               handleAdd={handleAdd}
-                               handleChangeTask={handleChangeTask}
-
+                show && <Modal
+                    handleShow={handleShow}
+                    handleChangeTask={handleChangeTask}
+                    handleAdd={handleAdd}
                 />
             }
             {/*<Input placeholder={'напишите текст'} onChange={handleChange}/>*/}
@@ -101,7 +108,7 @@ const Main = () => {
             {/*<Input placeholder={'напишите текст'} onChange={handleChange}/>*/}
             {/*<Input placeholder={'напишите текст'} onChange={handleChange}/>*/}
             {/*<Input placeholder={'напишите текст'} onChange={handleChange}/>*/}
-            <h1 style={{fontSize: '20px', color: 'red'}}> {inputValue}</h1>
+            {/*<h1 style={{ fontSize: '20px', color: 'red' }}> {inputValue}</h1>*/}
         </>
     );
 };
