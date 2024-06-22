@@ -1,0 +1,15 @@
+.all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100px;
+    padding-top: 15px;
+
+}
+.btn {
+    background-color: deepskyblue;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+}

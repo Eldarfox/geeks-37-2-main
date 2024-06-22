@@ -2,6 +2,7 @@ import './App.css';
 import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Counter from "./pages/counter/Counter";
+import TodoPage from "./pages/todoPage/TodoPage";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
             <Header links={links}/>
             <Counter/>
             <Main/>
+            <TodoPage/>
             <Header links={links}/>
         </div>
     );
