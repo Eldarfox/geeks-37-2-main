@@ -66,7 +66,6 @@ const TodoPage = () => {
     const searchTask = (tasks) => {
         return tasks.filter(task => task.title.match(new RegExp(regex, 'i')));
     };
-
     const filteredTasks = searchTask(tasks).filter(task => {
         if (filter === 'all') return true;
         if (filter === 'completed') return task.completed;

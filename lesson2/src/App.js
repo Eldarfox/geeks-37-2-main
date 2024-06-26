@@ -3,6 +3,7 @@ import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Counter from "./pages/counter/Counter";
 import TodoPage from "./pages/todoPage/TodoPage";
+import Form from "./pages/form/Form";
 
 
 function App() {
@@ -12,9 +13,10 @@ function App() {
     return (
         <div className="App">
             <Header links={links}/>
-            <Counter/>
-            <Main/>
-            <TodoPage/>
+            {/*<Counter/>*/}
+            {/*<Main/>*/}
+            {/*<TodoPage/>*/}
+            <Form/>
             <Header links={links}/>
         </div>
     );
