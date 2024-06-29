@@ -4,6 +4,9 @@ import Header from './components/header/Header';
 import Counter from "./pages/counter/Counter";
 import TodoPage from "./pages/todoPage/TodoPage";
 import Form from "./pages/form/Form";
+import Fetch from "./pages/fetch/Fetch";
+import FormAxios from "./pages/formAxios/FormAxios";
+import PokemonCard from "./pages/pokemonCard/PokemonCard";
 
 
 function App() {
@@ -12,12 +15,14 @@ function App() {
     ]
     return (
         <div className="App">
-            <Header links={links}/>
+            {/*<Header links={links}/>*/}
             {/*<Counter/>*/}
             {/*<Main/>*/}
             {/*<TodoPage/>*/}
-            <Form/>
-            <Header links={links}/>
+            {/*<Form/>*/}
+            {/*<Fetch/>*/}
+            {/*<FormAxios/>*/}
+            <PokemonCard/>
         </div>
     );
 }
